@@ -63,7 +63,7 @@ int main(int argc, char * argv []){
 	else{/* Code executed by parent */
 
 #ifdef Y_DEBUG
-		SHOW_MSG("Hello, I am parent-process.");
+		//SHOW_MSG("Hello, I am parent-process.");
 		Y_PRINTF("parentprocess: parent pid is %4ld,current pid is %4ld \n", (long)getppid(),(long)getpid());
 #endif //Y_DEBUG
 		
