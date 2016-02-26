@@ -1,15 +1,15 @@
+
 /*
 *	FileName:Y_Stdarg.h
-*	Version: 1.0	
-*	Description: The file defines va_list,va_start,va_-
-*		end and so on for other fuction.As the thoese macroes-
-*		is difficult to use in linux system,I rede-
-*		fine them. 
+*	Version: 1.0
+*	Description: The file defines two macroes about y_va-
+*		_list,y_va_start,y_va_end,y_va_arg
 *	Created On:2016-2-25
 *	Modified date:
 *	Author:Sky
 *
 */
+
 #ifndef _Y_STDARG_H
 #define _Y_STDARG_H
 

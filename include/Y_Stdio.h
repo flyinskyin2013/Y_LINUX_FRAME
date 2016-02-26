@@ -1,10 +1,10 @@
 /*
 *	FileName:Y_Stdio.h
-*	Version: 1.1	
+*	Version: 1.2	
 *	Description: The file defines two macroes about st-
 *		andard input and output datas.
 *	Created On:2015-9-10
-*	Modified date:2016-2-16
+*	Modified date:2016-2-26
 *	Author:Sky
 *
 */

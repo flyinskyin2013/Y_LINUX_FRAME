@@ -1,3 +1,12 @@
+/*
+*	FileName:Y_Stdio.c
+*	Version: 1.0	
+*	Description: The file implement y_print()
+*	Created On:2016-2-25
+*	Modified date:
+*	Author:Sky
+*
+*/
 #include "Y_Stdio.h"
 
 
