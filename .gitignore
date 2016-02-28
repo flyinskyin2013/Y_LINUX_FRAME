@@ -1,3 +1,5 @@
 *.[oa]
 test
+test_share
+test_static
 *.?~
