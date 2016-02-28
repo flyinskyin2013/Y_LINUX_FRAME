@@ -1,4 +1,4 @@
-*.[oa]
+*.o
 test
 test_share
 test_static
