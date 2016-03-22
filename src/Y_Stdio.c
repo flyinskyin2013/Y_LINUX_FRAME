@@ -9,7 +9,6 @@
 */
 #include "Y_Stdio.h"
 
-
 #define ZEROPAD	1		/* pad with zero */
 #define SIGN	2		/* unsigned/signed long */
 #define PLUS	4		/* show plus */

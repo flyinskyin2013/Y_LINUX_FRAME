@@ -32,7 +32,7 @@ int main(int argc, char * argv []){
 	int ret_status;
 	Y_sARG arg;
 	void *retval;
-	
+
 	cpid = fork();
 	if (cpid == -1){
 		ERROR_MSG("fpid<0","creating child-process failed!");
