@@ -1,5 +1,5 @@
 # Y_LINUX_FRAME
-	A Muti-Processes and Muti-Threads Frame
+	A Muti-Processes and Muti-Threads Frame based on linux.
 
 #How to use 
 	firstly,you should modified bellow files to sure how many threads you want.default,there are two threads
