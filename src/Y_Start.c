@@ -55,7 +55,7 @@ int main(int argc, char * argv []){
 		*/
 
 		//The fuction is the program entrance.
-		retval = Y_ChildProcess((void *) &arg);	
+		retval = Y_ChildProcess((const void *) &arg);	
 
 		//child-process returned.
 		exit(EXIT_SUCCESS);
