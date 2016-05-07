@@ -1,9 +1,9 @@
 .PHONY:all clean  
 
-all:${OBJ}
-	@${CC} ${C_FLAGS} ${OBJ} -o ${TARGET}
+all:${TARGET}
+	@${CC}  ${OBJ} -o ${TARGET} ${LD_FLAGS}
 	@mv ${TARGET} ${BUILD_DIR}
-	@mv $^ ${BUILD_DIR}
+	@mv ${OBJ} ${BUILD_DIR}
 #this is to make test from a static-lib
 test_static:${OBJ}
 	@${CC} ${C_FLAGS} ${OBJ_S} -o test_static -static -L ${LIB_DIR} -l Y_Stdio
@@ -23,20 +23,12 @@ libY_Stdio_Shared:
 	@${CC} -shared -fPIC -o libY_Stdio.so Y_Stdio.o
 	@mv libY_Stdio.so ${LIB_DIR}
 
-Y_Stdio.o:Y_Stdio.c
-	@${CC} ${C_FLAGS} -c $<
+${TARGET}:
+	@${CC} ${C_FLAGS} -c ${SRC}
 
-Y_Start.o:Y_Start.c
-	@${CC} ${C_FLAGS} -c $<
-
-Y_ChildProcess.o:Y_ChildProcess.c
-	@${CC} ${C_FLAGS} -c $<
-
-userthreads.o:userthreads.c
-	@${CC} ${C_FLAGS} -c $<
 
 
 #clean target
 clean:
-	@rm Y_Start.o Y_ChildProcess.o Y_Stdio.o userthreads.o test
+	@rm  ${OLD_OBJ} ${BUILD_DIR}/${TARGET}
 
