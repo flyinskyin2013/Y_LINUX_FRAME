@@ -1,31 +1,43 @@
-CC:=gcc
-C_FLAGS:=-D Y_DEBUG -I include/ -std=c99 -pthread
-OBJ:=Y_Start.o Y_ChildProcess.o Y_Stdio.o
-OBJ_S:=Y_Start.o Y_ChildProcess.o 
+##############################
+# file:   Makefile
+# author:  sky
+# modified-date:  2016-05-07
+###############################
 
-test:${OBJ}
-	@${CC} ${C_FLAGS} ${OBJ} -o test
+export ROOT_DIR := $(shell pwd)  
 
-test_static:${OBJ}
-	@${CC} ${C_FLAGS} ${OBJ_S} -o test_static -static -L./lib/ -l Y_Stdio
-test_share:${OBJ}
-	@${CC} ${C_FLAGS} ${OBJ_S} -o test_share -L./lib/ -l Y_Stdio
-libY_Stdio_Static:
-	@${CC} ${C_FLAGS} -c src/Y_Stdio.c
-	@ar -rcs libY_Stdio.a Y_Stdio.o
-	@mv libY_Stdio.a ./lib
-libY_Stdio_Shared:
-	@${CC} ${C_FLAGS} -fPIC -c src/Y_Stdio.c
-	@${CC} -shared -fPIC -o libY_Stdio.so Y_Stdio.o
-	@mv libY_Stdio.so ./lib
-Y_Start.o:src/Y_Start.c
-	@${CC} ${C_FLAGS} -c src/Y_Start.c
-Y_ChildProcess.o:src/Y_ChildProcess.c
-	@${CC} ${C_FLAGS} -c src/Y_ChildProcess.c
-Y_Stdio.o:src/Y_Stdio.c
-	@${CC} ${C_FLAGS} -c src/Y_Stdio.c
-.PHONY : clean
-clean:
-	@rm Y_Start.o Y_ChildProcess.o Y_Stdio.o test
+#get out of start and end char' ' of the string
+ROOT_DIR :=$(strip ${ROOT_DIR})
+
+export LIB_DIR:=$(ROOT_DIR)/lib
+export SRC_DIR:=$(ROOT_DIR)/src
+export INCLUDE_DIR:=$(ROOT_DIR)/include
+
+export TARGET:=test
+
+export CC:=gcc
+export OBJ:=Y_Start.o Y_ChildProcess.o Y_Stdio.o userthreads.o
+export OBJ_S:=Y_Start.o Y_ChildProcess.o 
+
+#if you want to build release-program , use command: make BUILD_RELEASE=TRUE
+ifeq ($(BUILD_RELEASE), TRUE)
+export	C_FLAGS:= -I ${INCLUDE_DIR} -std=c99 -pthread
+export BUILD_DIR := $(ROOT_DIR)/release  
+else
+export	C_FLAGS:= -g -D Y_DEBUG -I ${INCLUDE_DIR} -std=c99 -pthread
+export BUILD_DIR := $(ROOT_DIR)/debug
+endif
+
+
+.PHONY :default all clean 
+
+default:all 
+
+all :
+	@${MAKE} -C src all
+
+clean: 
+	@${MAKE} -C src clean
+
 
 

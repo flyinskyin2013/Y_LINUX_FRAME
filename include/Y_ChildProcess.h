@@ -12,6 +12,7 @@
 
 #include "Y_Macro.h"
 #include "yThread.h"
+#include "userthreads.h"
 
 #define ThreadTotalNum 2
 

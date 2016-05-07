@@ -8,8 +8,7 @@
 *
 */
 #include "Y_ChildProcess.h"
-void * thread1(const void * arg);
-void * thread2(const void * arg);
+
 
 
 #define createThread(num,name,status) { \
@@ -27,21 +26,7 @@ Ys_Thread ThreadTable[] = {
 
 
 
-void * thread1(const void * arg){
-	void * a;
-#ifdef Y_DEBUG
-	SHOW_MSG("This is Thread1.\n");
-#endif //Y_DEBUG
-	return a;
-}
 
-void * thread2(const void * arg){
-	void * a;
-#ifdef Y_DEBUG
-	SHOW_MSG("This is Thread2.\n");
-#endif //Y_DEBUG
-	return a;
-}
 
 void * Y_ChildProcess(const void * arg){
 
