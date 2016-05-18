@@ -1,6 +1,7 @@
 #ifndef USERTHREADS_H
 
 #include "Y_Macro.h"
+#include "yThread.h"
 
 
 extern void * thread1(const void * arg);
